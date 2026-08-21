@@ -1,0 +1,6 @@
+# Raw source PDFs — copyrighted, ~930 MB, kept local only
+sources/
+
+# macOS + Obsidian per-machine state
+.DS_Store
+.obsidian/workspace.json
