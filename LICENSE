@@ -1,0 +1,49 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Paul Ruijgrok
+
+The wiki text in this repository — all Markdown files and the compiled
+Prodesy-wiki.pdf — is licensed under the Creative Commons Attribution 4.0
+International License.
+
+You are free to:
+
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material for any purpose,
+          even commercially
+
+under the following terms:
+
+  Attribution — You must give appropriate credit, provide a link to the
+  license, and indicate if changes were made. You may do so in any reasonable
+  manner, but not in any way that suggests the licensor endorses you or your
+  use.
+
+  No additional restrictions — You may not apply legal terms or technological
+  measures that legally restrict others from doing anything the license
+  permits.
+
+The full legal code is available at:
+
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+and a plain-language summary at:
+
+  https://creativecommons.org/licenses/by/4.0/
+
+---
+
+SCOPE — WHAT THIS LICENSE DOES NOT COVER
+
+1. Source PDFs. This repository is written from a local library of published
+   papers which is NOT included here (the sources/ directory is excluded via
+   .gitignore). Those papers remain under their respective publishers'
+   copyright and are not licensed by this file.
+
+2. Code. The book builder (book/build_book.py) is licensed separately under
+   the MIT License; see LICENSE-CODE.
+
+3. Facts and findings. Scientific results described in this wiki are the work
+   of the cited researchers. This license covers the expression — the prose,
+   organization, and synthesis — not the underlying findings, which are
+   attributed on each page to their primary sources.
