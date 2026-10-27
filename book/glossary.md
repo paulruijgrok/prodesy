@@ -65,6 +65,9 @@ IPA (invariant point attention)
 lDDT / pLDDT
 :   The local distance difference test, a superposition-free measure of local structural accuracy; **pLDDT** is a model's per-residue self-estimate of it, widely reused as a design filter.
 
+Logit
+:   An unnormalised score, one per amino acid per position; a softmax over the 20 logits at a position turns them into a probability distribution. Logits matter for design because a sequence is *discrete* and therefore cannot be differentiated — an L × 20 array of logits is the continuous stand-in that gradient-based methods actually optimise. See *relaxed sequence space*.
+
 MaSIF
 :   Molecular surface interaction fingerprints — geometric deep learning on protein surfaces, used to find and design interaction patches.
 
@@ -83,6 +86,9 @@ Oracle
 pAE / PAE (predicted aligned error)
 :   A predicted pairwise error matrix; `pAE_interaction` across a designed interface is a standard in silico discriminator of binders that will work experimentally.
 
+Parametric design
+:   Generating a backbone from a closed-form geometric description — for coiled coils, the Crick equations — rather than by sampling fragments, docking, or denoising. Symmetry comes out exact because the coordinate generator cannot express anything else. Works only for folds a parameterisation can capture, in practice repeat proteins.
+
 Partial diffusion
 :   Noising an existing design only part-way and re-denoising it, to sample local variants around a promising solution rather than starting from scratch.
 
@@ -94,6 +100,12 @@ ProteinMPNN
 
 Protpardelle
 :   The Huang-lab all-atom generative model, which handles side chains via a superposition over side-chain states.
+
+Relaxed sequence space
+:   The continuous sequence representation that gradient-based hallucination optimises in. Instead of a one-hot L × 20 matrix (one amino acid per position), each row is a softmax over *logits* — a weighted superposition of all 20 amino acids, e.g. 60% Leu / 15% Ile / 8% Val at one position. Such a residue is physically meaningless, but AlphaFold2's sequence input is consumed by a matrix multiply against an embedding table, which accepts a soft row as readily as a hard one; the network therefore runs end to end and the loss can be backpropagated all the way to the logits. That is the whole point: a discrete sequence admits no gradient, a relaxed one does, so design becomes gradient descent rather than the random search of earlier hallucination. Two consequences recur in this book. **Copies of the same logit tensor** give exact sequence identity between protomers of a homo-oligomer — not as an enforced constraint but because there is only one variable, gradients from every copy accumulating into it. And the relaxed sequence is **scaffolding, not product**: discretising it by argmax yields structures that deviate badly from the converged backbone, so the backbone is kept and the sequence thrown away and redesigned with ProteinMPNN.
+
+Repeat protein
+:   A protein built from multiple tandem copies of one modular structural unit. Because the rigid-body transform between adjacent units is identical, the whole chain is globally helical and describable by three parameters (radius, twist, rise) — the property that makes parametric design possible.
 
 RFAA (RoseTTAFold All-Atom)
 :   The Baker-lab generalised predictor covering proteins with small molecules, nucleic acids and covalent modifications; the basis for RFdiffusionAA.
