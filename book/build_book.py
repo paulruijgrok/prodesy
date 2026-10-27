@@ -23,7 +23,8 @@ import argparse, os, re, subprocess, sys, glob, tempfile
 PART_LAYOUT = [
     ("Foundations", ["protein-biophysics", "structure-prediction"]),
     ("Generative Design", ["generative-backbone-design", "all-atom-design", "motif-scaffolding"]),
-    ("Sequence and Interfaces", ["sequence-design", "binder-design", "interface-design"]),
+    ("Sequence and Interfaces", ["sequence-design", "de-novo-binder-design", "interface-design"]),
+    ("Catalysis", ["enzyme-design", "catalytic-site-design"]),
     ("Assemblies, Scaffolds and Validation",
      ["symmetric-oligomer-design", "scaffolds-and-reagents", "benchmarking-and-validation"]),
 ]

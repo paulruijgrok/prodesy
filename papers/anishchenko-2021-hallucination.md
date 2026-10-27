@@ -33,7 +33,7 @@ The paper that **inverted a structure predictor into a generator**. Random seque
 
 **Connections.**
 
-- Founds the hallucination lineage: → [[wang-2022-functional-site-scaffolding]] (motif constraints), → [[wicky-2022-symmetric-assembly-design]] (symmetry constraints), → generalized by [[watson-2023-rfdiffusion]].
+- Founds the hallucination lineage: → [[wang-2022-functional-site-scaffolding]] (motif constraints), → [[wicky-2022-symmetric-assembly-design]] (symmetry constraints), → generalized by [[watson-2023-rfdiffusion]], → and revived with gradients by [[frank-2024-relaxed-sequence-optimization]], which implements the gradient-based optimization this paper proposed in its closing paragraphs.
 - Uses **trRosetta**, the predecessor of [[rosettafold]]; the authors explicitly propose porting the method to RoseTTAFold and to [[jumper-2021-alphafold2]], which is what [[wicky-2022-symmetric-assembly-design]] does.
 - Its uncontrolled homo-oligomerization is the accidental precursor to the *deliberate* symmetric assemblies of [[symmetric-oligomer-design]].
 - Concepts: [[diffusion-generative-design]] (as the pre-diffusion generative route), [[motif-scaffolding]], [[symmetric-assembly-design]].
